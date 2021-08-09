@@ -19,8 +19,11 @@ app.get("/sendMail/:email", (req, res) => {
 	const transporter = nodemailer.createTransport({
 		service: "gmail",
 		auth: {
-			user: "YOUR_EMAIL",
-			pass: "YOUR_EMAIL_PASSWORD",
+			// user: "YOUR_EMAIL",
+			// pass: "YOUR_EMAIL_PASSWORD",
+
+            user: "sueh.qt.ueh@gmail.com",
+            pass: "suehquyettam"
 		},
 	});
 
@@ -65,5 +68,5 @@ app.use((req, res) => {
 });
 
 var server = app.listen(process.env.PORT || 3000, () => {
-	console.log("The server is now running at http://localhost:" + 3000);
+	console.log("The server is now running at http://localhost:3000/sendMail");
 });
