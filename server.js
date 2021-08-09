@@ -11,7 +11,7 @@ const hbs = require("nodemailer-handlebars");
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
-
+app.use(cors())
 // sending email route
 app.get("/sendMail/:email", (req, res) => {
 	// get submit data
