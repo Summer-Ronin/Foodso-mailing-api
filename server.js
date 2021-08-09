@@ -4,6 +4,7 @@
 var express = require("express");
 var nodemailer = require("nodemailer");
 var bodyParser = require('body-parser')
+var cors = require('cors')
 
 const hbs = require("nodemailer-handlebars");
 
@@ -24,8 +25,8 @@ app.get("/sendMail/:email", (req, res) => {
 			// user: "YOUR_EMAIL",
 			// pass: "YOUR_EMAIL_PASSWORD",
 
-            user: "sueh.qt.ueh@gmail.com",
-            pass: "suehquyettam"
+            user: "phamp9331@gmail.com",
+            pass: "@PhongEnter323999@!"
 		},
 	});
 
@@ -41,7 +42,7 @@ app.get("/sendMail/:email", (req, res) => {
 	);
 
 	let mailOptionsClient = {
-		from: "sueh.qt.ueh@gmail.com",
+		from: "phamp9331@gmail.com",
 		to: client_email,
 		subject: "💓 FoodSo xin chân thành cảm ơn💓",
 		template: "mail_template",
