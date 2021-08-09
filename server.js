@@ -3,30 +3,27 @@
  */
 var express = require("express");
 var nodemailer = require("nodemailer");
-var bodyParser = require('body-parser')
-var cors = require('cors')
+var bodyParser = require("body-parser");
+var cors = require("cors");
 
 const hbs = require("nodemailer-handlebars");
 
 var app = express();
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 // sending email route
 app.get("/sendMail/:email", (req, res) => {
 	// get submit data
-    var client_email = req.params.email
+	var client_email = req.params.email;
 
 	var client_name = client_email.split("@")[0];
 
 	const transporter = nodemailer.createTransport({
 		service: "gmail",
 		auth: {
-			// user: "YOUR_EMAIL",
-			// pass: "YOUR_EMAIL_PASSWORD",
-
-            user: "phamp9331@gmail.com",
-            pass: "@PhongEnter323999@!"
+			user: "YOUR_EMAIL",
+			pass: "YOUR_EMAIL_PASSWORD",
 		},
 	});
 
