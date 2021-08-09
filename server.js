@@ -12,9 +12,9 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 
 // sending email route
-app.post("/sendMail", (req, res) => {
+app.get("/sendMail/:email", (req, res) => {
 	// get submit data
-    var client_email = req.body.email
+    var client_email = req.params.email
 
 	var client_name = client_email.split("@")[0];
 
