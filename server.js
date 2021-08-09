@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // sending email route
-app.post("/sendMail/:email", (req, res) => {
+app.get("/sendMail/:email", (req, res) => {
 	var client_email = req.params.email;
 	console.log(client_email);
 	var client_name = client_email.split("@")[0];
@@ -19,11 +19,8 @@ app.post("/sendMail/:email", (req, res) => {
 	const transporter = nodemailer.createTransport({
 		service: "gmail",
 		auth: {
-			// user: "YOUR_EMAIL",
-			// pass: "YOUR_EMAIL_PASSWORD",
-
-            user: "sueh.qt.ueh@gmail.com",
-            pass: "suehquyettam"
+			user: "YOUR_EMAIL",
+			pass: "YOUR_EMAIL_PASSWORD",
 		},
 	});
 
