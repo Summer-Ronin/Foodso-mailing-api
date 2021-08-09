@@ -3,17 +3,19 @@
  */
 var express = require("express");
 var nodemailer = require("nodemailer");
+var bodyParser = require('body-parser')
+
 const hbs = require("nodemailer-handlebars");
 
 var app = express();
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}))
 
 // sending email route
-app.get("/sendMail/:email", (req, res) => {
-	var client_email = req.params.email;
-	console.log(client_email);
+app.post("/sendMail", (req, res) => {
+	// get submit data
+    var client_email = req.body.email
+
 	var client_name = client_email.split("@")[0];
 
 	const transporter = nodemailer.createTransport({
